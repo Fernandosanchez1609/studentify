@@ -28,11 +28,7 @@ jobs:
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
     - name: Deploy Application
       run:
-        aws deploy create-deployment --application-name CodeDeployApp \
-          --deployment-group-name CodeDeployGP \
-          --github-location repository=${{ github.repository }},commitId=${{ github.sha }} \
-          --region ${{ vars.REGION }} \
-          --file-exists-behavior OVERWRITE
+       aws deploy create-deployment --application-name "CodeDeployApp" --deployment-group-name "CodeDeployGP" --github-location repository=${{ github.repository }},commitId=${{ github.sha }} --region ${{ vars.REGION }} --file-exists-behavior OVERWRITE
 
 
 
